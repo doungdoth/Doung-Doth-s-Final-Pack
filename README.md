@@ -3,6 +3,10 @@
 # Bash history 
 # Elive Elightenment
 
+# The purpose of Elive, is to experience Elive as a primary OS. It is to experience and learn the familiarities as well as the differences compared to other OS. Elive is an free open source OS, and that meant that people world wide help contribute to the making of it. This lead to our class to use Elive and to create a user reference guide that was based off our personal experience(good and bad)problems and have insightful information or solutions that would fix any trouble that others like us may encounter.
+
+# I've tried out many different commands. Some included from the standard commands like ls... apug , apt-get, install ,to those my peers have come up with or found, that I found interesting from getting packages, to updating, and graphics.
+
 * 16  sudo
 * 18  APUG * 20  apug
  *   21  ls bin
