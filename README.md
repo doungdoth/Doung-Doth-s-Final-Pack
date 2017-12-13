@@ -1,74 +1,78 @@
-# Doung D. Doth
-# CSCI 2461-70 Computer Networking 3 – Linux
-# August 30, 2017
-# Journal 1
+# Doung Doth
+# Networking 3 Linux
+# September 2, 2017
+
+# Journal 2
+# BASIC COMMANDS AND DIRECTORY HIERARCHY
+ 
+* 2.1 boune shell /bin/sh
+Shell is one of the important part of unix. Shell is a program that runs command, and servers as a small programming environment.
+Shell scripts= text files that are a sequence of shell commands.
+Bash or Borne again shell, is the default shell of most Linux.
+
+* 2.23 Standard input and standard output. Unix uses I/o streams read and write data. Processes read data from input and write data to output streams. Flexible.
+* 2.3 basic commands
+
+ls= is to list the contents of a directory = -l long
+cp=copies files
+Mb move commands
+Touch = creates a file. Doesn’t change just update if existing file
+Rm- delete or remove a file
+Echo = prints arguments to standard output.
+Cd- is changing the current working directory + dir
+Mkdir= creates a new directory dir.
+Rmdir= removes the directory.
+Shell globbing= shell can match simple patters to file and directory names.
+* 2.5 intermediate commands
+
+Grep- prints the lines from a file or input stream that match expression
+Less- use to decrease what is shown at a time vs long list
+Pwd print working directory.
+Diff-see differences between wo text files
+File -see a file and unsure of its format
+Find and locate- =To find a certain file in a directory tree. Head and tail is a quick way to view a portion of a file and stream of data.
+Sort =quickly puts the lines of text files in alphanumeric order.
+CTL-D = on empty lines, stops the current standard input entry from the terminal.
+CTRL-C= terminates a program regardless of input output.
+Less = comand that lessens the o overview of a really big file with long output or scrolls.
+* 2.6 changing password
+
+passwd command to change password.
+* 2.9 command path
+path is a special environment variable . Path is  a list of system directories that the shell searches when given a command.
+* 2.10 Special characters=Include Asterisk, dot, pipe forward slash etc…
+* Beware to type $path corectley. If not can risk wiping out enitre path. Just start a new shell if it happens.
+* 2.11 command-line editing: ctrl- (B,F,P N,A moves cursor,E,W,U,K,Y erases)
+* 2.14 listing and manipulating processes:
+PID=  process ID, TTY=The terminal decice where the process is running., STAT process status where memory resides. = TIME the amount of CPU time in minutes and seconds= COMMAND=can change the field.
+* Every time you read, writ or execute permission is sometimes called a permission bit.
+* 2.17.1 Modifying permissions
+to change permissions, use chmod command. And then pick the bit to change.
+chod g+r file
+chmod o+r file
+chmod o+r file is both combined.
+Symbolic Links= is a file that points to another file or directory creating an alias like a windows shortcut.  Offfer a quick link.
+Ln -s target linkname
+gzip = the program (GNU zip ) one of the current standard Unix compression.
+tar=o create an archive, tar cvf archive.tar file 1….
+* 2.20 sudo
+sudo = package allows larger distributors and admins to run commands when logged in as themselves.
+su command allows to enter the root password to start root shell. No record for previous commands.
+$ Sudo vipw
+Use visudo command to edit/etc/sudoers, to check for file syntax errors after saved file.
+
+# Linux Directory Hierarch Essentials
+/
+Bin/ 	dev/	etc/	usr/	home/	lib/	sbin/	tmp/	var/
+			|					    |			
+ Bin/	man/	lib/	local/	sbin/	share/			log/	tmp/
 
 
-# Notes from book: How Linux works
 
-“distros” = 2 desktops = KDE and Gnome
-				(UBUNTU)	
-(UNITY)
-Ubuntu=LXDE (used for Small or old machines) SUSE = Big distros or multiple machines
-LKM= Loadable Kernal Module
-What is userspace?
-What is Kernal Space?
-
-User space is the precesses that are the running programs that the kernel manages. Colectiviley make up the systems upper levels called user space aka. User Process
-
-Kernal Process runs in Kernal- unrestricted 
-User Process runs in User mode- Restricted from memory.
-Kernal Space= Area kernel only access, unrestricted access to predecessor and the main Mermory.
-User Mode- Restricts access to (small) subset of memory and safe cpu opoerations. Users can access
-
-* 1.2 Hardware- understanding Main memory
-
-Main memory- most important big storage made of 1s & 2s bits.
-Cpu- instructor/operator on memory
-Busy box-User interface
-* 1.3 Kernal
-Kernal splits memory into subdivision. Certain state
-4- Systems:
-PROCESSESS- kernel responsible for deteriming which process allowed use cpu
-MEMORY- kernel keeps track of ALL memory: currently allocated to processes, whats shared between processes, what free space.
-DEVICE DRIVERS-keral acts as interface between hardware disk and processes.
-SYSTEM CALLS and Support- Processes normally use system calls to communicate with the kernel
-* 1.3.1
-Process management- staring, pause, resume, terminating process
-Context switch- act of 1 process giving up control cpu to another
-Time Slice- Each piece of TIME, allow process enough time for complex compitatioj. Kernel is responsible
-* 1.3.2
-MMU- Modern cpu include the Memory Management Unit, which enable a memory access scheme = Virtual Memory
-Page Table- Memory address map.
-
-* 1.3.4
-System call and support
-Fork () symbol – process calls fork, which enable the kernel to make identical copy processor
-Exec() programs kernel stars program, replace old ones pg.7*
-Pseudo devices- looks lie devices, to use process but are implemented in the software
-Logs- Apps write diagonostic messages
-* 1.4 User Space
-
-User interface--------------------------------------------------------Web Browser
-									Mail server			
-Network configuration			Communication Bus 		Diagnostic Logging
-
-Service T 
-Complex- users on top
-Utility- middle
-Basic- on the bottom
-
-Root- AKA. Super User – the most important access to all runs in the User mode NOT in Kernal
-
-User Processes environment interaction;
-Kernal – Manages Proccesses and Hardware.
-
-
-# Clarity in technical reporting
-
-As I read the article, I found some things that were a bit hard to understand and comprehend, though there were some parts to where I did understand. In summary, from what I gained from reading the article, is that one who may have an agenda, writing/essay or presentation, should have an open mind. What I mean by that is to think of yourself as the reader, the audience. Imagine they are the one who’s reading your work and are because they hope to gain something from it. Whether that’s a life changing new found information or something small like a suggestion or a tip. The information should come as interesting and engaging. The audience or reader should want to be hooked, wanting to read or hear more. Not to be reading to just read and hope stumble on some information, or to be slowly daydreaming or distracted. The whole idea is to understand both sides. 
-When coming up with an idea and presenting it the many forms i.e. paper or PowerPoint, speech etc., one needs to be clear and concise. Choose words that are meaningful as if it could describe an image in one’s head. Now with the words carefully picked out, it should be in a certain language. No not a different speaking language unless it calls for it. It is the way the information is being addressed. It is having a certain tone of voice, an excitement, that one needs to have. Along with the proper grammar and formatting that one should already know, who doesn’t like pictures to go along with works? That is with the help of visual aids that can better the whole situation. It is of course must be relatable in a way that displays what you are talking about. 
-These are Just some of the interesting things that I learned from reading the article, as there are many more that I left out.
-
-
+* /- Root=   Every single file and directory starts from the root directory. Only root user has write privilege under this directory.
+/bin = subdirector of the root directory. Contains ready to run programs/executables. Basic unix commands include the ls and cp. Most programs in /bin are binary, created by a C compiler. Usually for booting the system
+/sbin =just like /bin, /sbin also contains binary executables. Programs deal with system management, so typically by system administrator, for system maintenance purpose. ROOT is necessary when running utilities.
+/usr/bin= Large directory hierarchy mostly of Linux system. contains binary files for user programs. Many names same as root directory and hold the same files for General system binaries.
+/usr/sbin=Large directory hierarchy of Linux system, contains binary files for system administrators  but for Scripts with Superuser Root privileges.
+/usr/local/bin=  contains users programs that you install from source
 
