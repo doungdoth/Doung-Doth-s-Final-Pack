@@ -14,7 +14,13 @@ The purpose of attending every class meeting is what I believe is because due to
 
 
 # Journal-Week#.md
-The Journals that I've completed and submitted via dropbox in d2L and are already graded are for the following weeks: week 1(15/10pts),week 2(10/10pts) + week 2 20commands(50/60pts),week 3(10/20pts),week 4(10/20pts),week 6(10/20pts). 
+The Journals that I've completed and submitted via dropbox in d2L and are already graded are for the following weeks:
++ week 1(15/10pts) File name "linux Doung Doth Journal 1.docx"
++ week 2(10/10pts) File name "linux Doung Doth journal 2.odt" 
++ week 2 20commands(50/60pts)File name "CSCI 2461 #20 Commands.docx"
++ week 3(10/20pts)File name "linux Doung Doth Journal 3.docx"
++ week 4(10/20pts)File name "linux Doung Doth Journal 4.docx"
++ week 6(10/20pts)File name "linux Doung Doth Journal 6.docx" 
 The only week journal I have missed is for week 5. 
 The purpose of the Journals are to document our learnings, notes, questions/concerns and if any solutions or answers. It is also a great way to learn and retain some of the information as reading and writing goes hand in hand with one another.
 + Expected grade: C
@@ -22,7 +28,8 @@ The purpose of the Journals are to document our learnings, notes, questions/conc
 
 
 # UNIX-History.md
-For the UNIX history final writeup that I have completed and submitted via dropbox in d2L, was given a grade of (80/100 pts.) 
+For the UNIX history final writeup that I have completed and submitted via dropbox in d2L, was given a grade of (80/100 pts.)
++ File name "unix thread ANDROID Doung Doth journal 2-2.docx"
 The purpose of the UNIX history, was to understand how the many different UNIX technological inventions created from many different companies, have begun and ended or even continue still to this day and to the future. My topic was specifically regarded to the Android softwares over the years.
 + Expected grade: B
 + Justification: Completed first draft prior to the final (200/250 pts), with final revisions and editing for the final receiving (80/100pts)
