@@ -68,7 +68,7 @@ The purpose of the AbantOs class project and my contributions were to create a "
   160  ls /home
 
 + Expected grade: A
-+ Justification: I've been learning to work with elive, and trying out many different commands. Some included from the standard commands like ls... apug , apt-get, install ,to those my peers have come up with or found, that I found interesting from getting packages, to updating, and graphics.
++ Justification: I've been using elive as my daily OS and has learned to work with elive features. There are some familiarities to iOS. I've tried out many different commands. Some included from the standard commands like ls... apug , apt-get, install ,to those my peers have come up with or found, that I found interesting from getting packages, to updating, and graphics.
 
 
 
