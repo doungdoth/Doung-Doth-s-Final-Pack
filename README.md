@@ -1,37 +1,122 @@
-# CSCI 2461-70 Doth, Doung 2017-08-30
-# Week 2: 20 Commands
+# Doung Doth
+# Networking 3 Linux
+# Journal 3
 
-# 5 commands each from /bin, /usr/bin, /sbin, /usr/sbin
+# Chapters 4 & 5
 
-* /bin:
-* Sleep: sleep is delay for a specified amount of time. cause the calling thread to be suspended from execution until either the number of realtime seconds specified by the argument seconds has elapsed or a signal is delivered to the calling thread and its action is to invoke a signal-catching function or to terminate the process.
-*  Usleep: usleep suspend execution for microsecond intervals. suspends execution of the calling thread for (at least) usec microseconds. The sleep may be lengthened slightly by any system activity or by the time spent processing the call or by the granularity of system timers.  
-* Nice: run a program with modified scheduling priority Run Command with an adjusted  niceness,  which  affects  process scheduling.  With no Command, print the current niceness. Nicenesses range from -20 (most favorable scheduling) to 19 (least favorable).
-Chattr:  changes the file attributes on a Linux file system. When a file needs to be changed in terms of it’s attributes, use the chattr command.
-* Kill: send a signal to a process signal configuration Unit configuration files for services, sockets, mount points, swap devices and scopes share a subset of configuration options which define the killing procedure of processes belonging to the unit.
+* Disks and Filesystems
+____________________________________________________________________________________
+User Process
+_____________________________________________________________________________________
+			|
+_____________________________________________________________________________________	
+Linux Kernel		|
+[System Calls] ------------------------------------------------------------ [Device Files (nodes)]
+			|								|
+		[Filesystem]								|
+			|								|	
+		[Block Device Interface and Partition Mapping-----------------------------------------]		
+			|								|
+		[SCSI Subsystem and Other Drivers--------------------------------------------------------]
+_____________________________________________________________________________________
+			|
+_____________________________________________________________________________________
+Storage Device
 
-* /sbin:
-* watchdog: a software watchdog daemon. The Linux kernel can reset the system if serious problems are detected. This can be configured via special watchdog hardware, or via a slightly less reliable software-only watchdog inside the kernel. No matter what there needs to be a daemon that tells the kernel the system is working fine. If the daemon stops doing that, the system is reset
-* swapoff: enable/disable devices and files for paging and swapping. disables swapping on the specified devices and files. When the -a flag is given, swapping is disabled on all known swap devices and files (as found in /proc/swaps or /etc/fstab)
-start-stop-daemon: start and stop system daemon programs is used to control the creation and termination of system-level processes. Using one of the matching options, start-stop-daemon can be configured to find existing instances of a running process.
-* Poweroff: Halt, power-off or reboot the machine. If changes to configurations were recently made, a reboot may be necessary in order to have be in effect.
-* runlevel: event signaling change of system runlevel. The runlevel event signals a change of system runlevel. The new system runlevel is given in the Runlevel argument, and the 
-previous system runlevel in the Prelevel argument can be empty.
+* 4.1 Partitioning Disk Devices 
+The traditional table is Master Boot Record Newer standard is called the Globally Unique Identifier Partition Table. 
+Partitioning Tools:
+parted- text-based tool that supports both MBR and GPT.
+gparted- graphical version of parted. 
+fdisk- traditional text-based Linux disk partitioning tool but does not support GPT.
+gdisk-version of fdisk that supports GPT not MBR
+Note-Though similar, the partition table defines simple boundaries on the disk, whereas a filesystem is a much more involved data system.
 
-* /usr/bin:
-* Head: copy the first part of files. The head utility shall copy its input files to the standard output, ending the output for each file at a designated point.
-* Killall:  sends a signal to all processes running any of the specified commands. If no signal name is specified, SIGTERM is sent. S signals can be specified either by 
-* Flock:   locks from within shell scripts or the command line. The first and second forms wrap the lock around the executing a command, in a.
-* Basename: Print NAME with any leading directory components removed. If specified, also remove a trailing Suffix. Mandatory arguments to long options are mandatory for .
-* telnet: The telnet command is used to communicate with another host using the telnet protocol. If telnet is invoked without the host argument, it enters command mode, indicated by its prompt), it accepts and executes the commands listed below. If it is invoked with arguments, it performs an open command with those arguments
+* 4.1.3 Disk and Partition Geometry
+Single- platter disk consists of a spinning platter on spindle, with a head attached to moving arm that can sweep across the radius of the disk and as the head spins it reads the data. The circle is called a cylinder. Platter can have more than two head for top or bottom of platter. Divide a cylinder into slices called sectors.
 
-* /usr/sbin:
-* ether-wake: ether-wake is a program that generates and transmits a Wake-On-LAN also known as (WOL) "Magic Packet". It is used for restarting machines that have been soft-powered-down. It generates the standard AMD Magic Packet format, optionally with a password included. The single required parameter is a station (MAC) address or a host ID that can be translated to a MAC address by an ethers(5) database specified in
-* ethtool: ethtool is used to query and control network device driver and hardware settings, particularly for wired Ethernet devices. Used for configuring hardware settings.
-* Curl: curl  is a tool to transfer data from or to a server, using one of the supported protocols: (a few… HTTPS, IMAP, TELNET TFTP). The command is designed to work without user interaction. curl offers many options including: proxy support, user authentication, FTP upload, HTTP post, SSL connections, cookies, file transfer resume. 
+* 4.2 File system
+kernel and user space -the file-system= a database that transform into block device into files in hierarchy
+The mkfs utility can create filesystems *create an ext4 partition with # mkfs -t ext4 /dev/sdf2
 
-* i2cdetect: i2cdetect  is a userspace program to scan an I2C bus for devices. It outputs a table with the list of detected devices on the specified bus. i2cbus indicates the number or name of the I2C bus to be scanned, and should correspond to one of the busses listed by i2cdetect -l. The optional parameters first and last restrict the scanning range default: from 0x03 to 0x77
+note-perform after adding a new disk or repartitioning an old on. Creating a new filesystem on top of an existing filesystem will effectively destroy the old data. 
+* 4.3 Mounting filesystem
+mounting- process of attaching a filesystem in Unix  $ mount command and to unmount # unmount mountpoint
+UUID - type of serial number with each one being different. programs like mke2fs creates a UUID identifier when initializing the filesystem data structure.
+
+* 4.2.10
+$ df command and the outputs:
+Filesystem -The filesystem device 
+1024-blocks-The total capacity of the filesystem in blocks of 1024 bytes 
+Used-The number of occupied blocks  Available. The number of free blocks 
+Capacity-The percentage of blocks in use
+ Mounted on- The mount point
+note- df and du output in most Linux distributions is in 1024-byte block compared to POSIX
+
+* 4.2.11 
+fsck-The tool to check a filesystem. Prints verbose status like Pass 1: checking…
+note-  never use fsck on mounted filesystem because  kernel may alter the disk data, causing runtime mismatches that can crash your system and corrupt files. use only in root partition read only single user mode.
+* 4.3
+$ free - free command output  the current swap usage in kilobytes.
+note- swap space is dangerous on  general purpose machine. If runs out of both real memory and swap space:
+Linux kernel invokes the out-of-memory (OOM) killer to kill- a process in order to free up some memory
+
+
+* 4.5.2 Inside filesystem
+User level Representation
+* [(root)]
+         /		           \			
+ [dir_1]			[dir_2]
+/      |	\			     |        \
+[file 1] [file 2] [file 3]			[file-4]	   [file-5]
+
+$  stat -command node information
+The Virtual File System (VFS) interface layer ensures system calls always return inode numbers and link counts
+
+
+* 4.53 Btrfs as an example of a next-generation filesystem
 
 
 
-Source manual Linux man pages by SysTutorials
+* Chapter 5 How the Linux Kernel Boots.
+
+Simplified view of the Kernel starting/ boot:
+ * 1. The machine’s BIOS or boot firmware loads and runs boot loader.
+ * 2. The boot loader finds the kernel image on disk, loads it into memory starts
+  * 3. The kernel initializes devices and drivers.
+  * 4. The kernel mounts the root filesystem. 
+ * 5. The kernel starts a program called init with a process ID of 1. This point is the user space start. 
+ * 6. init sets the rest of the system processes in motion. 
+ * 7. At some point, init starts a process to log in, usually near the end of the boot
+
+
+* 5.1 startup messeges
+messages come first from the kernel,  then from processes and initialization procedures that init starts.
+use command $ dmesg but be sure to pipe the output to less because there will be much more than a screen’s worth
+ * 5.2 Kernel Initialization and Boot Options 
+startup- Linux Kernel general order:
+ * 1. CPU inspection 
+ * 2. Memory inspection 
+ * 3. Device bus discovery 
+ * 4. Device discovery
+ * 5. Auxiliary kernel subsystem setup/networking, 
+ * 6. Root filesystem mount 
+ * 7. User space star
+
+
+ * 5.4 Boot Loader Tasks
+ Linux boot loader’s core functionality: 
+Selecting among multiple kernels, switch between sets of kernel parameter, allow the user to manually override and edit kernel image and names and parameters/ single user mode, provide support for booting other OS
+
+GRUB-Grand Unified Boot Loader -near-universal standard on Linux systems 
+LILO-One of the first Linux boot loaders. ELILO is a UEFI version
+SYSLINUX- Can configured to run from many kinds of filesystems 
+LOADLIN- Boots a kernel from MS-DOS
+efilinux- UEFI boot loader serve as a model and reference for other UEFI boot loaders
+coreboot (LinuxBIOS)- high-performance replacement for PC BIOS include a kernel 
+Linux Kernel EFISTUB- kernel plugin loading  kernel directly from  EFI/UEFI System Partition .
+
+ * note-GRUB has its own “kernel” and own insmod command to dynamically load GRUB modules, completely independent of the Linux kernel
+# grub-mkconfig-command is a shell script that runs everything in /etc/grub.d.
+# grub-install which performs most of the work of installing the GRUB files and configuration (not Ubuntu install-grub)
+Note-Incorrectly installing GRUB may break  bootup sequence system. back up your MBR with dd, back up any other currently installed GRUB directory, have a emergency backup bootup plan.
