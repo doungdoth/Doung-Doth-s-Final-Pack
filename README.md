@@ -24,7 +24,7 @@ The purpose of the Journals are to document our learnings, notes, questions/conc
 # UNIX-History.md
 For the UNIX history final writeup that I have completed and submitted via dropbox in d2L, was given a grade of (80/100 pts.) 
 The purpose of the UNIX history, was to understand how the many different UNIX technological inventions created from many different companies, have begun and ended or even continue still to this day and to the future. My topic was specifically regarded to the Android softwares over the years.
-+ Expected grade: A
++ Expected grade: B
 + Justification: Completed first draft prior to the final (200/250 pts), with final revisions and editing for the final receiving (80/100pts)
 
 
