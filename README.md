@@ -48,7 +48,7 @@ As part of the Quality Assurance/Tester group, my contributions to AbantOS class
 
 # What is BIOS?
 
-*BIOS stands for Basic Input Output System referred to as BIOS. It is a software stored on a small memory chip on the motherboard. It give the computer a set of instructions on how to perform some of the basic functions such as booting and keyboard control as well as configure the hardware in a computer including the hard drive, floppy drive, USB, optical drive, CPU, and memory.
+* BIOS stands for Basic Input Output System referred to as BIOS. It is a software stored on a small memory chip on the motherboard. It give the computer a set of instructions on how to perform some of the basic functions such as booting and keyboard control as well as configure the hardware in a computer including the hard drive, floppy drive, USB, optical drive, CPU, and memory.
 
 # Booting (Mac) from an external USB device
 
