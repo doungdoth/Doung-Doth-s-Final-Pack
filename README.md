@@ -1,40 +1,48 @@
-# Doung-Doth-Final-Pack # 
-# Networking 3 Linux - CSCI 2461 #
-
-:Filename, Purpose, Expected Grade, Grade Justification
-
-
-Attendance.md
-
-
-recording your dates present.
+# Doung Doth # 
+# CSCI 2461-70 Computer Networking 3 - Linux  #
+# Final Pack #
+# December 13 2017 #
+ 
+List the following: #1 Filename, #2 Purpose, #3 Expected Grade, #4 Grade Justification
 
 
-Journal-Week#.md
+# Attendance.md-
+I have not been absent, and have been to each and every class meeting beginning from week 1 8/25/17, all through to the final week 12/13/17. 
+The purpose of attending every class meeting is what I believe is because it is due to it being only a single class a week, for four hours, there is much to learn, and very little time per class meeting. I make it a a personal goal to attend each class, because I understand what is being held in class is important, whether it is regarding notes, demos, lectures,peers, assignments or just answers to potential questions, I did my best to attend each class meeting, and for the duration of the class session.
+Expected grade: A
+Justification: Attended every class meeting and stayed the duration of the class session.
 
 
-Weekly typed lecture journal entries, and study journal entires (No photographs)
+# Journal-Week#.md
+The Journals that I've completed and submitted via dropbox in d2L and are already graded are for the following weeks: week 1(15/10pts),week 2(10/10pts) + week 2 20commands(50/60pts),week 3(10/20pts),week 4(10/20pts),week 6(10/20pts). 
+The only week journal I have missed is for week 5. 
+The purpose of the Journals are to document our learnings, notes, questions/concerns and if any solutions or answers. It is also a great way to learn and retain some of the information as reading and writing goes hand in hand with one another.
+Expected grade: b
+Justification: Missed week 5 journal and some journals were graded 50%
 
 
-UNIX-History.md
+# UNIX-History.md
+For the UNIX history final writeup that I have completed and submitted via dropbox in d2L, was given a grade of 80/100 pts. 
+The purpose of the UNIX history, was to understand how the many different UNIX technological inventions created from many different companies, have begun and ended or even continue still to this day and to the future. My topic was specifically regarded to the Android softwares over the years.
+Expected grade: A
+Justification: Completed first draft prior to the final (200/250 pts), with final revisions and editing for the final receiving (80/100pts)
 
 
-Your UNIX history final writeup.
-
-
-AbantOS.md
-
-
-Your contributions made to AbantOS Class Project
-
-
-ExtraCredit.md
-Any extra credit items you produced.
-
-
-Final Exam Practical
-bash_history.md
-
+# AbantOS.md
+As part of the Quality Assurance/Tester group, my contributions to AbantOS class project included: Troubleshooting/ Booting processes specifically for External Flash Drive -USB from both PC and Mac computers. Details of how to enter the Boot Manager, BIOS, enabling Legacy, and priority.  
+The purpose of the AbantOs class project and my contributions were to create a "User reference guide", where information was held to help assist if there were any possible questions or issues that would arise when it came to working specifically with elive-elightenment.
+Expected grade: b
+Justification: Participated and contributed to the best of my abilities. Whether it was in the weekly discussion board, or using GitHub and making commits/repositories. Few sections of the AbantOS, I worked on making many commits as well as other grammar edits to the whole user reference guide.
 
 
 The contents of your Elive user ~/.bash_history file.
+Commands: cat ~/.bash_history or echo $HISTFILE or /home/username/.bash_history or History | less
+
+# bash_history.md
+
+
+Expected grade: A
+Justification: I've been learning to work with elive, and trying out many different commands. Some included from the standard commands like apug to those my peers have come up with or found, that I found interesting from getting packages, to updating, and graphics.
+
+
+
