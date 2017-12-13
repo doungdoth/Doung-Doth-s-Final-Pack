@@ -21,6 +21,8 @@ The Journals that I've completed and submitted via dropbox in d2L and are alread
 + week 3(10/20pts)File name "linux Doung Doth Journal 3.docx"
 + week 4(10/20pts)File name "linux Doung Doth Journal 4.docx"
 + week 6(10/20pts)File name "linux Doung Doth Journal 6.docx" 
+
+
 The only week journal I have missed is for week 5. 
 The purpose of the Journals are to document our learnings, notes, questions/concerns and if any solutions or answers. It is also a great way to learn and retain some of the information as reading and writing goes hand in hand with one another.
 + Expected grade: C
