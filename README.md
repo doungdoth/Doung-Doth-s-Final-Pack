@@ -7,7 +7,7 @@ List the following: #1 Filename, #2 Purpose, #3 Expected Grade, #4 Grade Justifi
 
 
 # Attendance.md-
-I have not been absent, and have been to each and every class meeting beginning from # week 1 8/25/17 #, all through to the final week 12/13/17. 
+I have not been absent, and have been to each and every class meeting beginning from ## week 1 8/25/17 ##, all through to the final week 12/13/17. 
 The purpose of attending every class meeting is what I believe is because due to it being only a single class a week, for four hours, there is much to learn, and very little time per class meeting. I make it a a personal goal to attend each class, because I understand what is being held in class is important, whether it is regarding notes, demos, lectures,peers, assignments or just answers to potential questions, I did my best to attend each class meeting, and for the duration of the class session.
 _Expected grade: A
 Justification_: Attended every class meeting and stayed the duration of the class session.
