@@ -1,122 +1,166 @@
 # Doung Doth
 # Networking 3 Linux
-# Journal 3
+# Journal 4
 
-# Chapters 4 & 5
+# Chapters 6 & 7
 
-* Disks and Filesystems
-____________________________________________________________________________________
-User Process
-_____________________________________________________________________________________
-			|
-_____________________________________________________________________________________	
-Linux Kernel		|
-[System Calls] ------------------------------------------------------------ [Device Files (nodes)]
-			|								|
-		[Filesystem]								|
-			|								|	
-		[Block Device Interface and Partition Mapping-----------------------------------------]		
-			|								|
-		[SCSI Subsystem and Other Drivers--------------------------------------------------------]
-_____________________________________________________________________________________
-			|
-_____________________________________________________________________________________
-Storage Device
+* Chapter 6
+How User Space Start
+kernel starts its first user-space process, init with memory and CPU
+User space general starting order:
+1. init 
+2. Essential low-level services such as udevd and syslogd
+3. Network configuration
+4. Mid- and high-level services 
+5. Login prompts, GUIs, high-level applications
 
-* 4.1 Partitioning Disk Devices 
-The traditional table is Master Boot Record Newer standard is called the Globally Unique Identifier Partition Table. 
-Partitioning Tools:
-parted- text-based tool that supports both MBR and GPT.
-gparted- graphical version of parted. 
-fdisk- traditional text-based Linux disk partitioning tool but does not support GPT.
-gdisk-version of fdisk that supports GPT not MBR
-Note-Though similar, the partition table defines simple boundaries on the disk, whereas a filesystem is a much more involved data system.
+itin- program is a user-space program along in /sbin. Starts and sttop the essential service processes on the system
+three major implementations of init in Linux distributions:
+System V init- A traditional sequenced init used by Linux and Red hat enterprise
+system- emerging standard for init. Many distributions have moved to systemd,
+Upstart-The init on Ubuntu installations, but plan to change to system
 
-* 4.1.3 Disk and Partition Geometry
-Single- platter disk consists of a spinning platter on spindle, with a head attached to moving arm that can sweep across the radius of the disk and as the head spins it reads the data. The circle is called a cylinder. Platter can have more than two head for top or bottom of platter. Divide a cylinder into slices called sectors.
+systemd is goal oriented- define a target achieve and it’s dependencies and when you want to reach the target
+Upstart is reactionary- based on those events, runs jobs
 
-* 4.2 File system
-kernel and user space -the file-system= a database that transform into block device into files in hierarchy
-The mkfs utility can create filesystems *create an ext4 partition with # mkfs -t ext4 /dev/sdf2
+*6.2 system v runlevels
+$ who -r   check your system’s runlevels
 
-note-perform after adding a new disk or repartitioning an old on. Creating a new filesystem on top of an existing filesystem will effectively destroy the old data. 
-* 4.3 Mounting filesystem
-mounting- process of attaching a filesystem in Unix  $ mount command and to unmount # unmount mountpoint
-UUID - type of serial number with each one being different. programs like mke2fs creates a UUID identifier when initializing the filesystem data structure.
+*6.4 systemd
 
-* 4.2.10
-$ df command and the outputs:
-Filesystem -The filesystem device 
-1024-blocks-The total capacity of the filesystem in blocks of 1024 bytes 
-Used-The number of occupied blocks  Available. The number of free blocks 
-Capacity-The percentage of blocks in use
- Mounted on- The mount point
-note- df and du output in most Linux distributions is in 1024-byte block compared to POSIX
+handles the regular boot process and aims to incorporate a number of standard Unix services: cron and inetd
+examples nit boot- time tasks in Unix system:
+Service units- Control the traditional service daemons on a Unix system
+Mount units- Control the attachment of filesystems to the system. 
+Target units- Control other units, usually by grouping them. The
 
-* 4.2.11 
-fsck-The tool to check a filesystem. Prints verbose status like Pass 1: checking…
-note-  never use fsck on mounted filesystem because  kernel may alter the disk data, causing runtime mismatches that can crash your system and corrupt files. use only in root partition read only single user mode.
-* 4.3
-$ free - free command output  the current swap usage in kilobytes.
-note- swap space is dangerous on  general purpose machine. If runs out of both real memory and swap space:
-Linux kernel invokes the out-of-memory (OOM) killer to kill- a process in order to free up some memory
-
-
-* 4.5.2 Inside filesystem
-User level Representation
-* [(root)]
-         /		           \			
- [dir_1]			[dir_2]
-/      |	\			     |        \
-[file 1] [file 2] [file 3]			[file-4]	   [file-5]
-
-$  stat -command node information
-The Virtual File System (VFS) interface layer ensures system calls always return inode numbers and link counts
-
-
-* 4.53 Btrfs as an example of a next-generation filesystem
+* $ systemctl dot command
+Dependency Tree
+[default.target]
+|
+[multi-user.target]
+/                               |		     \
+                  [basic.target]              [cron.service]        [syslog.service]
+		|
+	[iptables.service]
 
 
 
-* Chapter 5 How the Linux Kernel Boots.
+* systemd offers a myriad of dependency basics:
+Requires - Strict dependencies. systemd attempts to activate the dependency unit. If dependency unit fails, systemd deactivates the dependent unit
+Wants. - Dependencies for activation only. Upon activating a unit, systemd activates the unit’s Wants dependencies, doesn’t care if those dependencies fail.
+Requisite. – Units must already be active. Before requisite dependency, systemd first checks status dependency. If dependency not activated, systemd fails activation of  unit with the dependency
+Conflicts. - Negative dependencies. activating a unit with conflict dependency, systemd automatically deactivates dependency if active. Simultaneous activation of two conflicting units fails.
 
-Simplified view of the Kernel starting/ boot:
- * 1. The machine’s BIOS or boot firmware loads and runs boot loader.
- * 2. The boot loader finds the kernel image on disk, loads it into memory starts
-  * 3. The kernel initializes devices and drivers.
-  * 4. The kernel mounts the root filesystem. 
- * 5. The kernel starts a program called init with a process ID of 1. This point is the user space start. 
- * 6. init sets the rest of the system processes in motion. 
- * 7. At some point, init starts a process to log in, usually near the end of the boot
+Note= Wants dependency type is special because it does not propagate failures to other units.
+* 6.4.3 systsemd configurations
+
+$ systemctl-  view a unit’s dependencies 
+# systemctl -p UnitPath show -check the current systemd configuration search path : 
+$ pkg-config system-To see the system unit and configuration directories
+Enabling Units
+Unit files are derived from the XDG Desktop Entry Specification with section names in brackets [ ] and variable and value assignments in each section
+
+Note=Enabling a unit is different from activating a unit. When you enable a unit, you are installing it into systemd’s configuration
+-Activate a unit with systemctl start, you’re just turning it on in the current runtime environment
+
+* 6.4.4 operations
+systemctl command, which allows you to activate and deactivate services, list status, reload
+activate, deactivate, and restart units, use the “systemd” start, stop, and restart commands
+
+* 6.4.6 procss stracking and synchronization
+Two fork basic startup styles:
+Type=simple The service process doesn’t fork.
+ Type=forking The service forks, and systemd expects the original service process to terminate. Upon termination, systemd assumes that the service is ready.
+
+* Type startup styles indicate service itself will notify systemd when ready: 
+Type=notify  -service sends a notification specific to systemd (sd_notify() function call) when is ready. 
+Type=dbus -  service registers itself on the Desktop-bus/dbus when ready..
 
 
-* 5.1 startup messeges
-messages come first from the kernel,  then from processes and initialization procedures that init starts.
-use command $ dmesg but be sure to pipe the output to less because there will be much more than a screen’s worth
- * 5.2 Kernel Initialization and Boot Options 
-startup- Linux Kernel general order:
- * 1. CPU inspection 
- * 2. Memory inspection 
- * 3. Device bus discovery 
- * 4. Device discovery
- * 5. Auxiliary kernel subsystem setup/networking, 
- * 6. Root filesystem mount 
- * 7. User space star
 
 
- * 5.4 Boot Loader Tasks
- Linux boot loader’s core functionality: 
-Selecting among multiple kernels, switch between sets of kernel parameter, allow the user to manually override and edit kernel image and names and parameters/ single user mode, provide support for booting other OS
+* Sequential boot timeline with a resource dependency 
 
-GRUB-Grand Unified Boot Loader -near-universal standard on Linux systems 
-LILO-One of the first Linux boot loaders. ELILO is a UEFI version
-SYSLINUX- Can configured to run from many kinds of filesystems 
-LOADLIN- Boots a kernel from MS-DOS
-efilinux- UEFI boot loader serve as a model and reference for other UEFI boot loaders
-coreboot (LinuxBIOS)- high-performance replacement for PC BIOS include a kernel 
-Linux Kernel EFISTUB- kernel plugin loading  kernel directly from  EFI/UEFI System Partition .
+Service E
+[Starting][Started; Resource R ready]--------------------
+Service A
+	  [Starting][Started] -------------------------------
+		Service B
+		  [Starting][Started] -----------------------
+			 Service C
+			   [Starting] -----------------------
 
- * note-GRUB has its own “kernel” and own insmod command to dynamically load GRUB modules, completely independent of the Linux kernel
- grub-mkconfig-command is a shell script that runs everything in /etc/grub.d.
- grub-install which performs most of the work of installing the GRUB files and configuration (not Ubuntu install-grub)
-Note-Incorrectly installing GRUB may break  bootup sequence system. back up your MBR with dd, back up any other currently installed GRUB directory, have a emergency backup bootup plan.
+
+
+* systemctl start echo.socket- to create an activation mechanism between two units with different prefixes
+$ telnet - test the service by connecting to your local port 
+
+
+* 6.5.1 Upstart initialization procedure
+Upstart when startup does the following:
+1. Loads its configuration and the job configuration files in /etc/init. 
+2. Emits the startup event.
+3. Runs jobs configured to start upon receiving the startup event.
+4. These initial jobs emit their own events, triggering more jobs and events.
+
+There are two primary kinds of Upstart jobs: Task jobs and Service Jobs
+
+$ initctl lis-You can view Upstart jobs and job status
+* 6.5.3 
+Stanzas
+task -task stanza tells Upstart that this is a task job
+expect- mountall job will spawn a daemon independently of orginal script.
+stop stanza tells Upstart to terminate the job 
+* 6.5.4upstar operations
+ initctl start job-start upstart job
+ initctl stop job -To stop a job 
+ initctl restart job- To restart a job
+
+* 6.6.4 system v init
+ telinit s to switch to single-user mode
+ shutdown -h now
+
+
+
+* Chapter 7
+
+System Configuration: Logging, System Time, Batch Jobs, and Users
+sudo and su allow you to change users
+/etc- system configuration files on a Linux system 
+
+syslogd daemon- waits for messages and, depending on the type of message received, funnels the output to a file
+* 7.2.2 configuring files
+Linux distributions new version syslogd called rsyslogd that does more than write log messages to file
+$ logger- test the system logger is to send a log message manually
+
+* 7.3.1 /etc/passwd file
+Note- logs caught by rsyslogd are not the only ones recorded by various pieces of the system
+
+user ID (UID)-which is the user’s representation in the kernel
+group ID (GID)-one of the numbered entries in the /etc/group file
+
+* 7.3.3 The /etc/shadow File
+shadow file was introduced to provide a more flexible (and more secure) way of storing passwords
+
+passwd -changesuser’s password, but can also use -f to change the user’s real name or -s
+
+* /etc/grou-p is a set of fields separated by colons read from left to right:
+The group name-  appears when you run a command like ls -l.
+The group password- hardly ever used (use sudo instead). 
+ The group ID (a number)-The GID must be unique within the group file. This number goes into a user’s group field in that user’s /etc/passwd entry. 
+An optional list of users that belong to the group.- users listed here, users with the corresponding group ID in their passwd file entries also belong to the group.
+
+* 7.6.1 installing contabs files
+ crontab- command installs, lists, edits, and removes a user’s crontab.
+* 7.10a PAM
+Pluggable Authentication Modules- easy to add support for additional authentication techniques:  two-factor and physical keys. 
+
+easy to add support for additional authentication techniques, such as two-factor and physical keys. Authentication mechanism support, provides a limited amount of authorization control for services 
+
+
+PAM flowchart steps:
+pam_rootok.so -module checks to see if  root user is the one trying to authenticate
+am_shells.so -module checks to see if user’s shell is in /etc/shells
+pam_unix.so -module asks the user for user’s password and checks
+pam_deny.so -module always fails, required control argument present, report back as chsh
