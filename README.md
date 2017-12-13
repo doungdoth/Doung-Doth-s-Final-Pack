@@ -48,94 +48,94 @@ As part of the Quality Assurance/Tester group, my contributions to AbantOS class
 
 # Booting (Mac) from an external USB device
 
-++ APPLE iOS MAC USER
+APPLE iOS MAC USER
 
-++ You can boot using an external flash drive USB using Startup Manager.
+ You can boot using an external flash drive USB using Startup Manager.
 
-++* Begin by restarting your computer by clicking the restart option with the mouse or by simply pressing the power button.
+* Begin by restarting your computer by clicking the restart option with the mouse or by simply pressing the power button.
 
-++* Right when the computer begins to boot up and a sound is heard, (usually before the the logo appears) immediately press and hold the Option (⌥) key, until the Startup Manager appears.
+* Right when the computer begins to boot up and a sound is heard, (usually before the the logo appears) immediately press and hold the Option (⌥) key, until the Startup Manager appears.
 
-++Startup Manager will scan and list connected drives and volumes that can be booted from.
+Startup Manager will scan and list connected drives and volumes that can be booted from.
 
-++* Select the volume you want by using the mouse or arrow keys on the keyboard.
+* Select the volume you want by using the mouse or arrow keys on the keyboard.
 
-++* Use the mouse to select or press the return key to select which to boot your Mac from the selected volume.
+* Use the mouse to select or press the return key to select which to boot your Mac from the selected volume.
 
-++ You should now be able to boot from external flash drive USB
+ You should now be able to boot from external flash drive USB
 
-++Another way to boot your external flash drive USB while the computer is ON, is to use what is called System Preference.
+Another way to boot your external flash drive USB while the computer is ON, is to use what is called System Preference.
 
-++* Begin by searching and opening the the System Preferences application in the Dock.
+* Begin by searching and opening the the System Preferences application in the Dock.
 
-++* Click the Startup Disk pane and you will see all the disk icons available.
+* Click the Startup Disk pane and you will see all the disk icons available.
 
-++* Select the appropriate device or system you wish to use to boot with.
+* Select the appropriate device or system you wish to use to boot with.
 
-++* Now restart the computer by selecting restart or by pressing the power button and then power it back on.
+* Now restart the computer by selecting restart or by pressing the power button and then power it back on.
 
-++ You should now be able to boot the external flash drive USB.
+ You should now be able to boot the external flash drive USB.
 
-++**References**
-++"[How to start up Mac from bootable media](http://www.idownloadblog.com/2015/09/14/how-to-start-up-mac-from-bootable-media/)"
+**References**
+"[How to start up Mac from bootable media](http://www.idownloadblog.com/2015/09/14/how-to-start-up-mac-from-bootable-media/)"
 
-++### Booting (PC) from an external USB device
+# Booting (PC) from an external USB device
 
-++* Begin by inserting the flash drive USB to a USB port. 
+* Begin by inserting the flash drive USB to a USB port. 
 
-++* Restart the computer (if on) by choosing to restart using the mouse, or by simply pressing the power button.
+* Restart the computer (if on) by choosing to restart using the mouse, or by simply pressing the power button.
 
-++* Power on the computer back on (if off). While the computer is beginning to boot up, you will need to press the Boot Menu key to load the Boot Menu. On many computers this is the F12 key, or one of the other F row keys.
+* Power on the computer back on (if off). While the computer is beginning to boot up, you will need to press the Boot Menu key to load the Boot Menu. On many computers this is the F12 key, or one of the other F row keys.
 
-++The Boot Menu should now appear. Look for anything regarding booting via USB or removable devices. 
+The Boot Menu should now appear. Look for anything regarding booting via USB or removable devices. 
 
-++* Use the arrow keys to highlight the desired USB or removable device and press enter to select.
+* Use the arrow keys to highlight the desired USB or removable device and press enter to select.
 
-++The computer should now boot via flash drive USB.
-
-
-++If nothing happens, or it did not work, you may need to enter the BIOS to configure the settings to see the boot menu.
-
-++See USB booting issues.
+The computer should now boot via flash drive USB.
 
 
-++### USB Booting Issues
+If nothing happens, or it did not work, you may need to enter the BIOS to configure the settings to see the boot menu.
 
-++USB Booting Issues
+See USB booting issues.
 
-++Did you have an issue when your PC did not boot the external flash drive USB even after going to Bios and selecting appropriate device? Did an Error message popped up saying something along the lines of "device is not found"? What do you do?
 
-++After you install what ever that it is you want on your external flash drive USB you may find out that you are finding some trouble getting it to work. This means something needs to be configured in the BIOS to allow the external flash drive USB to be recognized and booted. Once this is complete, your external hard drive USB device should now be able to run and work.
+# USB Booting Issues
 
-++Some computers boot immediately from the internal hard drive by default, which ignores any bootable devices unless it is instructed to do otherwise. Some computers may use UEFI motherboards instead of the tradional BIOS. This all depends on the operating system, as it may support either UEFI or BIOS. 
+USB Booting Issues
 
-++UEFI motherboards support what is called legacy boot, which allows the computer to boot external devices instead of the internal default.
+Did you have an issue when your PC did not boot the external flash drive USB even after going to Bios and selecting appropriate device? Did an Error message popped up saying something along the lines of "device is not found"? What do you do?
 
-++Here are the steps to to configure UEFI/Legacy Boot:
+After you install what ever that it is you want on your external flash drive USB you may find out that you are finding some trouble getting it to work. This means something needs to be configured in the BIOS to allow the external flash drive USB to be recognized and booted. Once this is complete, your external hard drive USB device should now be able to run and work.
 
-++* Begin by inserting the Flash drive USB to a USB port. 
+Some computers boot immediately from the internal hard drive by default, which ignores any bootable devices unless it is instructed to do otherwise. Some computers may use UEFI motherboards instead of the tradional BIOS. This all depends on the operating system, as it may support either UEFI or BIOS. 
 
-++* Restart the computer by choosing to restart using the mouse, or by simply pressing the power button on the keyboard.
+UEFI motherboards support what is called legacy boot, which allows the computer to boot external devices instead of the internal default.
 
-++* While the computer is beginning to boot up, continuously press the F12 key until the Boot Menu comes up. 
+Here are the steps to to configure UEFI/Legacy Boot:
 
-++If nothing happens, or it didn't work, you may need to enter the BIOS and configure the settings to see the boot menu.
+* Begin by inserting the Flash drive USB to a USB port. 
 
-++* Once again, you may need to restart the computer. THIS time, instead of pressing the F12, you'll want to press the F1 Key. 
-++This will allow you to enter the BIOS. 
+* Restart the computer by choosing to restart using the mouse, or by simply pressing the power button on the keyboard.
 
-++You'll want to look for anything regarding UEFI/Legacy Boot. 
+* While the computer is beginning to boot up, continuously press the F12 key until the Boot Menu comes up. 
 
-++* Once you find that, change the settings to enable or on. If theres and option for both, you may want to set that as well. (otherwise you'd have to change the setting back to what it was, in order to boot by default the internal hard drive (SSD)) 
+If nothing happens, or it didn't work, you may need to enter the BIOS and configure the settings to see the boot menu.
 
-++* Then after you do that you'll have to change the priority. Look for anything regarding the Priority and set or enable the settings to Legacy first. This will allow the external flash drive to boot first instead of the default internal hard drive (SDD)
+* Once again, you may need to restart the computer. THIS time, instead of pressing the F12, you'll want to press the F1 Key. 
+This will allow you to enter the BIOS. 
 
-++* Exit the menu and restart the computer either by choosing the restart options, or by powering off using the power button.
+You'll want to look for anything regarding UEFI/Legacy Boot. 
 
-++You should now be able to boot via external flash drive USB.
+* Once you find that, change the settings to enable or on. If theres and option for both, you may want to set that as well. (otherwise you'd have to change the setting back to what it was, in order to boot by default the internal hard drive (SSD)) 
 
-++**References**
-++"[USB Troubleshooting](https://www.pcworld.com/article/3057176/hardware/the-hidden-challenges-of-booting-from-a-usb-flash-drive.html/)"
+* Then after you do that you'll have to change the priority. Look for anything regarding the Priority and set or enable the settings to Legacy first. This will allow the external flash drive to boot first instead of the default internal hard drive (SDD)
+
+* Exit the menu and restart the computer either by choosing the restart options, or by powering off using the power button.
+
+You should now be able to boot via external flash drive USB.
+
+**References**
+"[USB Troubleshooting](https://www.pcworld.com/article/3057176/hardware/the-hidden-challenges-of-booting-from-a-usb-flash-drive.html/)"
 
 
 The purpose of the AbantOs class project and my contributions were to create a "User reference guide", where information was held to help assist if there were any possible questions or issues that would arise when it came to working specifically with elive-elightenment.
