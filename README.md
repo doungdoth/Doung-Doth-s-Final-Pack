@@ -34,10 +34,6 @@ The purpose of the AbantOs class project and my contributions were to create a "
 Expected grade: b
 Justification: Participated and contributed to the best of my abilities. Whether it was in the weekly discussion board, or using GitHub and making commits/repositories. Few sections of the AbantOS, I worked on making many commits as well as other grammar edits to the whole user reference guide.
 
-
-The contents of your Elive user ~/.bash_history file.
-Commands: cat ~/.bash_history or echo $HISTFILE or /home/username/.bash_history or History | less
-
 # bash_history.md
 
 
@@ -71,7 +67,7 @@ Commands: cat ~/.bash_history or echo $HISTFILE or /home/username/.bash_history 
   159  ls /etc
   160  ls /home
 
-Expected grade: A
+_Expected grade: A_
 Justification: I've been learning to work with elive, and trying out many different commands. Some included from the standard commands like apug to those my peers have come up with or found, that I found interesting from getting packages, to updating, and graphics.
 
 
