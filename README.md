@@ -46,6 +46,10 @@ The purpose of the UNIX history, was to understand how the many different UNIX t
 # AbantOS.md
 As part of the Quality Assurance/Tester group, my contributions to AbantOS class project included: Troubleshooting/ Booting processes specifically for External Flash Drive -USB from both PC and Mac computers. Details of how to enter the Boot Manager, BIOS, enabling Legacy, and priority. My own contributions are shown below:
 
+# What is BIOS?
+
+*BIOS stands for Basic Input Output System referred to as BIOS. It is a software stored on a small memory chip on the motherboard. It give the computer a set of instructions on how to perform some of the basic functions such as booting and keyboard control as well as configure the hardware in a computer including the hard drive, floppy drive, USB, optical drive, CPU, and memory.
+
 # Booting (Mac) from an external USB device
 
 APPLE iOS MAC USER
