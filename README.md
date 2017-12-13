@@ -117,6 +117,6 @@ coreboot (LinuxBIOS)- high-performance replacement for PC BIOS include a kernel
 Linux Kernel EFISTUB- kernel plugin loading  kernel directly from  EFI/UEFI System Partition .
 
  * note-GRUB has its own “kernel” and own insmod command to dynamically load GRUB modules, completely independent of the Linux kernel
-# grub-mkconfig-command is a shell script that runs everything in /etc/grub.d.
-# grub-install which performs most of the work of installing the GRUB files and configuration (not Ubuntu install-grub)
+ grub-mkconfig-command is a shell script that runs everything in /etc/grub.d.
+ grub-install which performs most of the work of installing the GRUB files and configuration (not Ubuntu install-grub)
 Note-Incorrectly installing GRUB may break  bootup sequence system. back up your MBR with dd, back up any other currently installed GRUB directory, have a emergency backup bootup plan.
