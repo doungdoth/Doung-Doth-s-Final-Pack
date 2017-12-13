@@ -4,8 +4,7 @@
 # Elive Elightenment
 
 * 16  sudo
-  *  18  APUG
-  *  20  apug
+* 18  APUG * 20  apug
  *   21  ls bin
  *   23  ls /bin
  *   24  ls ~/.bash_history
