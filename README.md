@@ -17,8 +17,8 @@ The purpose of attending every class meeting is what I believe is because due to
 The Journals that I've completed and submitted via dropbox in d2L and are already graded are for the following weeks: week 1(15/10pts),week 2(10/10pts) + week 2 20commands(50/60pts),week 3(10/20pts),week 4(10/20pts),week 6(10/20pts). 
 The only week journal I have missed is for week 5. 
 The purpose of the Journals are to document our learnings, notes, questions/concerns and if any solutions or answers. It is also a great way to learn and retain some of the information as reading and writing goes hand in hand with one another.
-+ _Expected grade: B
-+ Justification_: Missed week 5 journal and some journals were graded 50%
++ Expected grade: C
++ Justification: Missed week 5 journal and some journals were graded 50%
 
 
 # UNIX-History.md
