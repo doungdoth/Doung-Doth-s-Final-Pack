@@ -1,166 +1,140 @@
 # Doung Doth
 # Networking 3 Linux
-# Journal 4
+# Journal 6
 
-# Chapters 6 & 7
-
-* Chapter 6
-How User Space Start
-kernel starts its first user-space process, init with memory and CPU
-User space general starting order:
-1. init 
-2. Essential low-level services such as udevd and syslogd
-3. Network configuration
-4. Mid- and high-level services 
-5. Login prompts, GUIs, high-level applications
-
-itin- program is a user-space program along in /sbin. Starts and sttop the essential service processes on the system
-three major implementations of init in Linux distributions:
-System V init- A traditional sequenced init used by Linux and Red hat enterprise
-system- emerging standard for init. Many distributions have moved to systemd,
-Upstart-The init on Ubuntu installations, but plan to change to system
-
-systemd is goal oriented- define a target achieve and it’s dependencies and when you want to reach the target
-Upstart is reactionary- based on those events, runs jobs
-
-*6.2 system v runlevels
-$ who -r   check your system’s runlevels
-
-*6.4 systemd
-
-handles the regular boot process and aims to incorporate a number of standard Unix services: cron and inetd
-examples nit boot- time tasks in Unix system:
-Service units- Control the traditional service daemons on a Unix system
-Mount units- Control the attachment of filesystems to the system. 
-Target units- Control other units, usually by grouping them. The
-
-* $ systemctl dot command
-Dependency Tree
-[default.target]
-|
-[multi-user.target]
-/                               |		     \
-                  [basic.target]              [cron.service]        [syslog.service]
-		|
-	[iptables.service]
+# Chapters 10 & 11
 
 
+# Chapter 10   Network Applications and Services
+* 10.1 Basics of services
+TCP- Transmission Control Protocol, a set of networking protocols that allows two or more computers to communicate, uninterrupted two-way data streams 
+Note- ‘telnet’ is a program originally meant to enable logins to remote hosts but is now useful for debugging remote services
+$ curl - curl utility with a special option to record details about its communication
 
-* systemd offers a myriad of dependency basics:
-Requires - Strict dependencies. systemd attempts to activate the dependency unit. If dependency unit fails, systemd deactivates the dependent unit
-Wants. - Dependencies for activation only. Upon activating a unit, systemd activates the unit’s Wants dependencies, doesn’t care if those dependencies fail.
-Requisite. – Units must already be active. Before requisite dependency, systemd first checks status dependency. If dependency not activated, systemd fails activation of  unit with the dependency
-Conflicts. - Negative dependencies. activating a unit with conflict dependency, systemd automatically deactivates dependency if active. Simultaneous activation of two conflicting units fails.
+* 10.3 Secure Shell (SSH)
 
-Note= Wants dependency type is special because it does not propagate failures to other units.
-* 6.4.3 systsemd configurations
+SSH server- standalone most common network service applications. allows secure shell logins, remote program execution, simple file sharing. Encrypts  password and other session data, protecting you from snoopers. uses authentication  and  ciphers for session data
+There are two main SSH protocol versions: 1 and 2. OpenSSH supports both, but version 1 is rarely used
+OpenSSH has three host key sets: one for protocol version 1 and two for protocol 2. Each set has a public and a private key
+Note= Tunneling is the process of packaging and transporting one network connection using another one
+ ssh-keygen- to create a SSH protocol version 2 keys
+SSH servers also use a key file called ssh_known_hosts, which contains public keys from other hosts
+ chkconfig sshd on -To start sshd at boot
+$ ssh remote_username@host - To log in to a remote host, run 
 
-$ systemctl-  view a unit’s dependencies 
-# systemctl -p UnitPath show -check the current systemd configuration search path : 
-$ pkg-config system-To see the system unit and configuration directories
-Enabling Units
-Unit files are derived from the XDG Desktop Entry Specification with section names in brackets [ ] and variable and value assignments in each section
+* use scp to transfer files to or from a remote machine to your machine one host to another:
+$ scp user@host:file .
+$ scp file user@host:dir
+works like the command line,, using get and put commands
 
-Note=Enabling a unit is different from activating a unit. When you enable a unit, you are installing it into systemd’s configuration
--Activate a unit with systemctl start, you’re just turning it on in the current runtime environment
+* 10.4 inetd and xinetd Daemons
+even fields here are, from left to right:
+Service name- name from /etc
+Socket type. stream for TCP
+Protocol-tcp or udp
+Datagram server behavior-UDP wait or nowait
+User-username run service
+Executable-programs inetd to connect
+Arguments-executables 
 
-* 6.4.4 operations
-systemctl command, which allows you to activate and deactivate services, list status, reload
-activate, deactivate, and restart units, use the “systemd” start, stop, and restart commands
+* 10.5
 
-* 6.4.6 procss stracking and synchronization
-Two fork basic startup styles:
-Type=simple The service process doesn’t fork.
- Type=forking The service forks, and systemd expects the original service process to terminate. Upon termination, systemd assumes that the service is ready.
+netstat- basic network service debugging tool display a number of transport and network layer statistics
+options:
+-t Prints TCP port information
+-u Prints UDP port information
+-l Prints listening ports
+-a Prints every active port
+-n Disables name lookups
 
-* Type startup styles indicate service itself will notify systemd when ready: 
-Type=notify  -service sends a notification specific to systemd (sd_notify() function call) when is ready. 
-Type=dbus -  service registers itself on the Desktop-bus/dbus when ready..
+*  lsof -I complete list of programs 
 
+* 10.5.2. tcpodump
 
+*  tcpdump - puts your network interface card into promiscuous mode to see whats crossing your network
+Wireshark – GUI like version of tcp dump
 
+Primitives:
+tcp- TCP packets
+udp- UDP packets
+port port- TCP and/or UDP packets to/from port port
+host host -Packets to or from host
+ net network- Packets to or from network
+Note- tcpdump shouldn’t snoop around on networks unless you own them.
 
-* Sequential boot timeline with a resource dependency 
+* 10. netcat
 
-Service E
-[Starting][Started; Resource R ready]--------------------
-Service A
-	  [Starting][Started] -------------------------------
-		Service B
-		  [Starting][Started] -----------------------
-			 Service C
-			   [Starting] -----------------------
+$ netcat - netcat can connect to remote TCP/UDP ports 
+$ nmap - Network Mapper program scans all ports on  machine or network of machines looking for open ports, and it lists the ports it finds
 
-
-
-* systemctl start echo.socket- to create an activation mechanism between two units with different prefixes
-$ telnet - test the service by connecting to your local port 
-
-
-* 6.5.1 Upstart initialization procedure
-Upstart when startup does the following:
-1. Loads its configuration and the job configuration files in /etc/init. 
-2. Emits the startup event.
-3. Runs jobs configured to start upon receiving the startup event.
-4. These initial jobs emit their own events, triggering more jobs and events.
-
-There are two primary kinds of Upstart jobs: Task jobs and Service Jobs
-
-$ initctl lis-You can view Upstart jobs and job status
-* 6.5.3 
-Stanzas
-task -task stanza tells Upstart that this is a task job
-expect- mountall job will spawn a daemon independently of orginal script.
-stop stanza tells Upstart to terminate the job 
-* 6.5.4upstar operations
- initctl start job-start upstart job
- initctl stop job -To stop a job 
- initctl restart job- To restart a job
-
-* 6.6.4 system v init
- telinit s to switch to single-user mode
- shutdown -h now
+* 10.6 Remote Procedure Call (RPC)
+$ rpcinf – see RPC services your computer has
 
 
+* Chapter 11 Introduction to Shell Scripts
 
-* Chapter 7
+* 11.1
+What are shell scripts?
+shell script are a series of commands written in a file. The shell reads the commands from the file.
+#!/bin/sh    -  /bin/sh program
+note= run it by placing the script file in one of the directories in your command path and then running the script name on the command line.
+$ chmod +rx script  - allows other users to read and execute script
+$ echo- displays quote
 
-System Configuration: Logging, System Time, Batch Jobs, and Users
-sudo and su allow you to change users
-/etc- system configuration files on a Linux system 
+note-using double quotes when printing large amounts of text? consider using a here document
+shift-  can be used with argument variables to remove and advance
 
-syslogd daemon- waits for messages and, depending on the type of message received, funnels the output to a file
-* 7.2.2 configuring files
-Linux distributions new version syslogd called rsyslogd that does more than write log messages to file
-$ logger- test the system logger is to send a log message manually
-
-* 7.3.1 /etc/passwd file
-Note- logs caught by rsyslogd are not the only ones recorded by various pieces of the system
-
-user ID (UID)-which is the user’s representation in the kernel
-group ID (GID)-one of the numbered entries in the /etc/group file
-
-* 7.3.3 The /etc/shadow File
-shadow file was introduced to provide a more flexible (and more secure) way of storing passwords
-
-passwd -changesuser’s password, but can also use -f to change the user’s real name or -s
-
-* /etc/grou-p is a set of fields separated by colons read from left to right:
-The group name-  appears when you run a command like ls -l.
-The group password- hardly ever used (use sudo instead). 
- The group ID (a number)-The GID must be unique within the group file. This number goes into a user’s group field in that user’s /etc/passwd entry. 
-An optional list of users that belong to the group.- users listed here, users with the corresponding group ID in their passwd file entries also belong to the group.
-
-* 7.6.1 installing contabs files
- crontab- command installs, lists, edits, and removes a user’s crontab.
-* 7.10a PAM
-Pluggable Authentication Modules- easy to add support for additional authentication techniques:  two-factor and physical keys. 
-
-easy to add support for additional authentication techniques, such as two-factor and physical keys. Authentication mechanism support, provides a limited amount of authorization control for services 
+* 11.3 arguments
 
 
-PAM flowchart steps:
-pam_rootok.so -module checks to see if  root user is the one trying to authenticate
-am_shells.so -module checks to see if user’s shell is in /etc/shells
-pam_unix.so -module asks the user for user’s password and checks
-pam_deny.so -module always fails, required control argument present, report back as chsh
+$# -variable holds the number of arguments passed to a script
+$@- variable represents all of a script’s arguments
+$$- holds the prosess id of the shell
+$ ? – variable holds the exit colde of the last command shell executed
+* 11.5 conditionals. 
+shell has special constructs: such as:
+ if/then/ else and case statements
+elif -keyword that lets you string if conditionals together,
+
+* 11.5 Fiie operations test
+number of unary operations that check a file’s permissions/operators:
+Tests for
+-f  Regular file
+-d  Directory
+-h  Symbolic link
+-b  Block device
+-c  Character device
+-p  Named pipe
+-s  Socket
+operator
+-r  Readable
+-w  Writable
+-x  Executable
+-u Setuid
+-g Setgid
+-k “Sticky”
+operator               Returns true when the first argument…the second
+-eq			  Equal to 
+-ne 			  Not equal to 
+-lt			  Less than 
+-gt 			 Greater than 
+-le			 Less than or equal to 
+-ge			 Greater than or equal to 
+
+* 11.6 loops
+There are two types of loops in shell: for and while loops.
+for loop (which is a “for each” loop) is the most common
+while loop uses exit codes, like the if”conditional.
+
+* 11.8 temporary file management
+mktemp  -  command to create temporary filenames
+The argument to mktemp is a template
+
+* 11.9 here documents
+<EOF tells the shell to redirect all lines that follow the standard input of the command that precedes
+$ basename  - strip the extension from a filename or get rid of the directories in a full pathname
+
+* 11.10.
+awk- rarely used scripting language, is  a command prints the fifth field of the ls output
+$ sed substitute some text for a regular expression
+To use a subshell, put the commands to be executed by the subshell. a way to restore a part of the environment that is not permanent.
