@@ -4,11 +4,11 @@
 # 5 commands each from /bin, /usr/bin, /sbin, /usr/sbin
 
 * /bin:
-*               Sleep: sleep is delay for a specified amount of time. cause the calling thread to be suspended from execution until either the number of realtime seconds specified by the argument seconds has elapsed or a signal is delivered to the calling thread and its action is to invoke a signal-catching function or to terminate the process.
+* Sleep: sleep is delay for a specified amount of time. cause the calling thread to be suspended from execution until either the number of realtime seconds specified by the argument seconds has elapsed or a signal is delivered to the calling thread and its action is to invoke a signal-catching function or to terminate the process.
 *  Usleep: usleep suspend execution for microsecond intervals. suspends execution of the calling thread for (at least) usec microseconds. The sleep may be lengthened slightly by any system activity or by the time spent processing the call or by the granularity of system timers.  
 * Nice: run a program with modified scheduling priority Run Command with an adjusted  niceness,  which  affects  process scheduling.  With no Command, print the current niceness. Nicenesses range from -20 (most favorable scheduling) to 19 (least favorable).
 Chattr:  changes the file attributes on a Linux file system. When a file needs to be changed in terms of it’s attributes, use the chattr command.
-*              Kill: send a signal to a process signal configuration Unit configuration files for services, sockets, mount points, swap devices and scopes share a subset of configuration options which define the killing procedure of processes belonging to the unit.
+* Kill: send a signal to a process signal configuration Unit configuration files for services, sockets, mount points, swap devices and scopes share a subset of configuration options which define the killing procedure of processes belonging to the unit.
 
 * /sbin:
 * watchdog: a software watchdog daemon. The Linux kernel can reset the system if serious problems are detected. This can be configured via special watchdog hardware, or via a slightly less reliable software-only watchdog inside the kernel. No matter what there needs to be a daemon that tells the kernel the system is working fine. If the daemon stops doing that, the system is reset
