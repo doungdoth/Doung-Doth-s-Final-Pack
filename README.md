@@ -6,7 +6,7 @@
 List the following: #1 Filename, #2 Purpose, #3 Expected Grade, #4 Grade Justification
 
 
-# Attendance.md-
+# Attendance.md
 I have not been absent, and have been to each and every class meeting beginning from week 1 8/25/17, all through to the final week 12/13/17. 
 
 
