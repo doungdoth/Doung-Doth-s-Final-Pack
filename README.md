@@ -142,7 +142,7 @@ You should now be able to boot via external flash drive USB.
 "[USB Troubleshooting](https://www.pcworld.com/article/3057176/hardware/the-hidden-challenges-of-booting-from-a-usb-flash-drive.html/)"
 
 
-The purpose of the AbantOs class project and my contributions were to create a "User reference guide", where information was held to help assist if there were any possible questions or issues that would arise when it came to working specifically with elive-elightenment.
+The purpose of the AbantOs class project and my contributions were to create a "User reference guide", where information was held to help assist if there were any possible questions or issues that would arise when it came to working specifically with Elive-Elightenment.
 + Expected grade: B
 + Justification: Participated and contributed to the best of my abilities. Whether it was in the weekly discussion board, or using GitHub and making commits/repositories. Few sections of the AbantOS, I worked on making many commits as well as other grammar edits to the whole user reference guide.
 
@@ -180,9 +180,9 @@ The purpose of the AbantOs class project and my contributions were to create a "
   160  ls /home
 
 
-The purpose of elive, is to experience elive as a primary OS. To experience and learn the familiarities as well as the differences when compared to other OS. elive is an free open source OS, and that meant that people world wide help contribute to the making of this. This lead to our class to use elive and to create a user reference guide that was based off our personal experience(good and bad)problems and have insightful information or solutions that would fix any trouble that others like us may encounter.
+The purpose of Elive, is to experience Elive as a primary OS. It is to experience and learn the familiarities as well as the differences compared to other OS. Elive is an free open source OS, and that meant that people world wide help contribute to the making of it. This lead to our class to use Elive and to create a user reference guide that was based off our personal experience(good and bad)problems and have insightful information or solutions that would fix any trouble that others like us may encounter.
 + Expected grade: A
-+ Justification: I've been using elive as my daily OS and has learned to work with elive features. There are some familiarities to iOS. I've tried out many different commands. Some included from the standard commands like ls... apug , apt-get, install ,to those my peers have come up with or found, that I found interesting from getting packages, to updating, and graphics.
++ Justification: I've been using Elive as my daily OS and has learned to work with elive features. There are some familiarities to iOS. I've tried out many different commands. Some included from the standard commands like ls... apug , apt-get, install ,to those my peers have come up with or found, that I found interesting from getting packages, to updating, and graphics.
 
 
 
