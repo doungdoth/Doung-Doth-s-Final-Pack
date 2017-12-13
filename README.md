@@ -8,6 +8,8 @@ List the following: #1 Filename, #2 Purpose, #3 Expected Grade, #4 Grade Justifi
 
 # Attendance.md-
 I have not been absent, and have been to each and every class meeting beginning from week 1 8/25/17, all through to the final week 12/13/17. 
+
+
 The purpose of attending every class meeting is what I believe is because due to it being only a single class a week, for four hours, there is much to learn, and very little time per class meeting. I make it a a personal goal to attend each class, because I understand what is being held in class is important, whether it is regarding notes, demos, lectures,peers, assignments or just answers to potential questions, I did my best to attend each class meeting, and for the duration of the class session.
 + Expected grade: A
 + Justification: Attended every class meeting and stayed the duration of the class session.
@@ -24,6 +26,8 @@ The Journals that I've completed and submitted via dropbox in d2L and are alread
 
 
 The only week journal I have missed is for week 5. 
+
+
 The purpose of the Journals are to document our learnings, notes, questions/concerns and if any solutions or answers. It is also a great way to learn and retain some of the information as reading and writing goes hand in hand with one another.
 + Expected grade: C
 + Justification: Missed week 5 journal and some journals were graded 50%
@@ -41,6 +45,8 @@ The purpose of the UNIX history, was to understand how the many different UNIX t
 
 # AbantOS.md
 As part of the Quality Assurance/Tester group, my contributions to AbantOS class project included: Troubleshooting/ Booting processes specifically for External Flash Drive -USB from both PC and Mac computers. Details of how to enter the Boot Manager, BIOS, enabling Legacy, and priority.  
+
+
 The purpose of the AbantOs class project and my contributions were to create a "User reference guide", where information was held to help assist if there were any possible questions or issues that would arise when it came to working specifically with elive-elightenment.
 + Expected grade: B
 + Justification: Participated and contributed to the best of my abilities. Whether it was in the weekly discussion board, or using GitHub and making commits/repositories. Few sections of the AbantOS, I worked on making many commits as well as other grammar edits to the whole user reference guide.
@@ -78,6 +84,8 @@ The purpose of the AbantOs class project and my contributions were to create a "
   159  ls /etc
   160  ls /home
 
+
+The purpose of elive, is to experience elive as a primary OS. To experience and learn the familiarities as well as the differences when compared to other OS. elive is an free open source OS, and that meant that people world wide help contribute to the making of this. This lead to our class to use elive and to create a user reference guide that was based off our personal experience(good and bad)problems and have insightful information or solutions that would fix any trouble that others like us may encounter.
 + Expected grade: A
 + Justification: I've been using elive as my daily OS and has learned to work with elive features. There are some familiarities to iOS. I've tried out many different commands. Some included from the standard commands like ls... apug , apt-get, install ,to those my peers have come up with or found, that I found interesting from getting packages, to updating, and graphics.
 
